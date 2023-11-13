@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS First Steps</title>
+    <link rel="stylesheet" href="./styles.css"></link>
+  </head>
+  <body>
+    <nav id="navbar">
+      <header>CSS - Styling the web</header>
+      <ul>
+        <li><a class="nav-link" href="#CSS_first_steps">CSS first steps</a></li>
+        <li><a class="nav-link" href="#CSS_first_steps_overview">CSS first steps overview</a></li>
+        <li><a class="nav-link" href="#What_is_CSS">What is CSS</a></li>
+        <li><a class="nav-link" href="#How_CSS_is_structured">How CSS is structured</a></li>
+        <li><a class="nav-link" href="#How_CSS_works">How CSS works</a></li>
+        <li><a class="nav-link" href="#CSS_building_blocks">CSS building blocks</a></li>
+        <li><a class="nav-link" href="#CSS_building_blocks_overview">CSS building blocks overview</a></li>
+        <li><a class="nav-link" href="#Cascade_and_inheritence">Cascade and inheritence</a></li>
+        <li><a class="nav-link" href="#CSS_selectors">CSS selectors</a></li>
+        <li><a class="nav-link" href="#The_box_model">The box model</a></li>
+        <li><a class="nav-link" href="#Backgrounds_and_borders">Backgrounds and borders</a></li>
+        <li><a class="nav-link" href="#Handling_different_text_directions">Handling different text directions</a></li>
+        <li><a class="nav-link" href="#Overflowing_content">Overflowing content</a></li>
+        <li><a class="nav-link" href="#CSS_values_and_units">CSS values and units</a></li>
+      </ul>
+    </nav>
+    <main id="main-doc">
+      <section id="CSS_first_steps" class="main-section">
+        <header>CSS first steps</header>
+      </section>
+      <section id="CSS_first_steps_overview" class="main-section">
+        <header>CSS first steps overview</header>
+        <p>
+          CSS (Cascading Style Sheets) is used to style and lay out web pages — for example, to alter the font, color, size, and spacing of your content, split it into multiple columns, or add animations and other decorative features. This module provides a gentle beginning to your path towards CSS mastery with the basics of how it works, what the syntax looks like, and how you can start using it to add styling to HTML.
+        </p>
+      </section>
+      <section id="What_is_CSS" class="main-section">
+        <header>What is CSS</header>
+        <p>
+          CSS (Cascading Style Sheets) allows you to create great-looking web pages, but how does it work under the hood? This article explains what CSS is with a simple syntax example and also covers some key terms about the language.
+        </p>
+      </section>
+      <section id="How_CSS_is_structured" class="main-section">
+        <header>How CSS is structured</header>
+        <p>
+          First, let's examine three methods of applying CSS to a document: with an external stylesheet, with an internal stylesheet, and with inline styles.
+        </p>
+        <p>
+          An external stylesheet contains CSS in a separate file with a .css extension. This is the most common and useful method of bringing CSS to a document. You can link a single CSS file to multiple web pages, styling all of them with the same CSS stylesheet. 
+        </p>
+        <p>
+          <span>
+            You reference an external CSS stylesheet from an HTML &ltlink&gt element:
+          </span>
+          <pre>
+          <code>
+            &lt!DOCTYPE html&gt
+            &lthtml lang="en-GB"&gt
+              &lthead&gt
+                &ltmeta charset="utf-8" /&gt
+                &lttitle&gtMy CSS experiment&lttitle&gt
+                &ltlink rel="stylesheet" href="styles.css" /&gt
+              &lt/head&gt
+              &ltbody&gt
+                &lth1Hello World!&lt/h1&gt
+                &ltp>This is my first CSS example&lt/p&gt
+              &lt/body&gt
+            &lt/html&gt
+          </code>
+        </pre>
+
+        <span>
+          The href attribute of the <link> element needs to reference a file on your file system. In the example above, the CSS file is in the same folder as the HTML document, but you could place it somewhere else and adjust the path. Here are three examples:
+        </span>
+
+        <span>
+          <pre>
+            <code>
+              &lt!-- Inside a subdirectory called styles inside the current directory --&gt
+              &ltlink rel="stylesheet" href="styles/style.css" /&gt
+
+              &lt!-- Inside a subdirectory called general, which is in a subdirectory called styles, inside the current directory --&gt
+              &ltlink rel="stylesheet" href="styles/general/style.css" /&gt
+
+              &lt!-- Go up one directory level, then inside a subdirectory called styles --&gt
+              &ltlink rel="stylesheet" href="../styles/style.css" /&gt
+            </code>
+          </pre>
+        </span>
+        <span>The CSS stylesheet file might look like this</span>
+        <pre>
+          <code>
+            h1 {
+              color: blue;
+              background-color: yellow;
+              border: 1px solid black;
+            }
+
+            p {
+              color: red;
+            }
+          </code>
+        </pre>
+        <span>
+          The HTML for an internal stylesheet might look like this:
+        </span>
+
+        <pre>
+          <code>
+            &lt!DOCTYPE html&gt
+            &lthtml lang="en-GB"&gt
+              &lthead&gt
+                &ltmeta charset="utf-8" /&gt
+                &lttitle&gtMy CSS experiment&gt/title&gt
+                &ltstyle&gt
+                  h1 {
+                    color: blue;
+                    background-color: yellow;
+                    border: 1px solid black;
+                  }
+
+                  p {
+                    color: red;
+                  }
+                &lt/style&gt
+              &lt/head&gt
+              &ltbody&gt
+                &lth1&gtHello World!&gt/h1&gt
+                &ltp&gtThis is my first CSS example&gt/p&gt
+              &lt/body&gt
+            &lt/html&gt
+          </code>
+        </pre>
+
+        <span>
+          Inline styles are CSS declarations that affect a single HTML element, contained within a style attribute. The implementation of an inline style in an HTML document might look like this:
+        </span>
+
+        <pre>
+          <code>
+            &lt!DOCTYPE html&gt
+            &lthtml lang="en-GB"&gt
+              &lthead&gt
+                &ltmeta charset="utf-8" /&gt
+                &lttitle>My CSS experiment&lt/title&gt
+              &lt/head&gt
+              &ltbody&gt
+                &lth1 style="color: blue;background-color: yellow;border: 1px solid black;"&gt
+                  Hello World!
+                &lt/h1&gt
+                &ltp style="color:red;"&gtThis is my first CSS example&lt/p&gt
+              &lt/body&gt
+            &lt/html&gt
+          </code>
+        </pre>
+        </p>
+      
+      </section>
+      <section id="How_CSS_works" class="main-section">
+        <header>How CSS works</header>
+        <p>
+          When a browser displays a document, it must combine the document's content with its style information. It processes the document in a number of stages, which we've listed below. Bear in mind that this is a very simplified version of what happens when a browser loads a webpage, and that different browsers will handle the process in different ways. But this is roughly what happens.
+          <ol>
+            <li>The browser loads the HTML (e.g. receives it from the network).</li>
+            <li>It converts the HTML into a DOM (Document Object Model). The DOM represents the document in the computer's memory. The DOM is explained in a bit more detail in the next section.</li>
+            <li>The browser then fetches most of the resources that are linked to by the HTML document, such as embedded images, videos, and even linked CSS! JavaScript is handled a bit later on in the process, and we won't talk about it here to keep things simpler.</li>
+            <li>The browser parses the fetched CSS, and sorts the different rules by their selector types into different "buckets", e.g. element, class, ID, and so on. Based on the selectors it finds, it works out which rules should be applied to which nodes in the DOM, and attaches style to them as required (this intermediate step is called a render tree).</li>
+            <li>The render tree is laid out in the structure it should appear in after the rules have been applied to it.</li>
+            <li>The visual display of the page is shown on the screen (this stage is called painting).</li>
+          </ol>
+        </p>
+      </section>
+      <section id="CSS_building_blocks" class="main-section">
+        <header>CSS building blocks</header>
+        <p>
+          
+        </p>
+      </section>
+      <section id="CSS_building_blocks_overview" class="main-section">
+        <header>CSS building blocks overview</header>
+        <p>
+          This module looks at the cascade and inheritance, all the selector types we have available, units, sizing, styling backgrounds and borders
+        </p>
+      </section>
+      <section id="Cascade_and_inheritence" class="main-section">
+        <header>Cascade and inheritence</header>
+        <p>
+          <span>
+            Stylesheets cascade — at a very simple level, this means that the origin, the cascade layer, and the order of CSS rules matter. When two rules from the same cascade layer apply and both have equal specificity, the one that is defined last in the stylesheet is the one that will be used.
+          </span>
+          <span>
+            some CSS property values set on parent elements are inherited by their child elements, and some aren't.
+          </span>
+
+        </p>
+      </section>
+      <section id="CSS_selectors" class="main-section">
+        <header>CSS selectors</header>
+        <p>
+          In CSS, selectors are used to target the HTML elements on our web pages that we want to style. There are a wide variety of CSS selectors available, allowing for fine-grained precision when selecting elements to style.
+        </p>
+      </section>
+      <section id="The_box_model" class="main-section">
+        <header>The box model</header>
+        <p>
+          In CSS we have several types of boxes that generally fit into the categories of block boxes and inline boxes. The type refers to how the box behaves in terms of page flow and in relation to other boxes on the page. Boxes have an inner display type and an outer display type.
+        </p>
+      </section>
+      <section id="Backgrounds_and_borders" class="main-section">
+        <header>Backgrounds and borders</header>
+        <p>
+          The CSS background property is a shorthand for a number of background longhand properties that we will meet in this lesson. If you discover a complex background property in a stylesheet, it might seem a little hard to understand as so many values can be passed in at once.
+        </p>
+      </section>
+      <section id="Handling_different_text_directions" class="main-section">
+        <header>Handling different text directions</header>
+        <p>
+          A writing mode in CSS refers to whether the text is running horizontally or vertically. The writing-mode property lets us switch from one writing mode to another. You don't need to be working in a language which uses a vertical writing mode to want to do this — you could also change the writing mode of parts of your layout for creative purposes.
+        </p>
+      </section>
+      <section id="Overflowing_content" class="main-section">
+        <header>Overflowing content</header>
+        <p>
+          Everything in CSS is a box. You can constrain the size of these boxes by assigning values of width and height (or inline-size and block-size). Overflow happens when there is too much content to fit in a box. CSS provides various tools to manage overflow. As you go further with CSS layout and writing CSS, you will encounter more overflow situations.
+        </p>
+      </section>
+      <section id="CSS_values_and_units" class="main-section">
+        <header>CSS values and units</header>
+        <p>
+          In CSS specifications and on the property pages here on MDN you will be able to spot value types as they will be surrounded by angle brackets, such as &ltcolor&gt or &ltlength&gt. When you see the value type &ltcolor&gt as valid for a particular property, that means you can use any valid color as a value for that property, as listed on the &ltcolor&gt reference page.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
