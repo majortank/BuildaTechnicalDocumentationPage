@@ -43,7 +43,7 @@ We welcome contributions in the form of corrections, improvements, or additional
 
 ## Reporting Issues
 
-If you encounter any issues or have suggestions, please [open an issue](https://github.com/your-username/css-first-steps/issues) with a clear title and description.
+If you encounter any issues or have suggestions, please [open an issue](https://github.com/majortank/BuildaTechnicalDocumentationPage/issues) with a clear title and description.
 
 ## Thank You!
 
